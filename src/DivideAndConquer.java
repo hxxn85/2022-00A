@@ -1,22 +1,27 @@
-
 public class DivideAndConquer {
     private boolean isSomething(int start, int end) {
         return start >= end;
     }
 
-    public int[] mergeSort(int[] arr, int start, int end) {
+    // 재귀 함수
+    // c: 배열명 = 주소
+    // 자바: 배열명, 배열
+
+
+    // primitive types: 원시변수: 값이 복사
+    // 객체: 주소값
+    public void mergeSort(int[] arr, int start, int end) {
         if (isSomething(start, end)) {
-            return null;
+            return;
         }
 
-        int mid = (start + end) / 2;
+        int mid = (start + end) / 2;    // 중간값
 
-        mergeSort(arr, 0, mid);
-        mergeSort(arr, mid+1, end);
+        // 후위 순회
+        mergeSort(arr, 0, mid);     // 왼쪽 절반
+        mergeSort(arr, mid+1, end); // 오른쪽 절반
 
-        merge(arr, start, mid, end);
-
-        return null;
+        merge(arr, start, mid, end);      // 정복
     }
 
     private int[] merge(int[] arr, int start, int mid, int end) {
