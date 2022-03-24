@@ -1,23 +1,20 @@
+import java.util.Random;
+
 public class DivideAndConquer {
-    private boolean isSomething(int start, int end) {
+    private boolean isNotDividable(int start, int end) {
         return start >= end;
     }
 
     public void mergeSort(int[] arr, int start, int end) {
-        if (isSomething(start, end)) {
-            return;
-        }
+        if (isNotDividable(start, end)) return;
 
-        int mid = (start + end) / 2;    // 중간값
-
-        // 후위 순회
-        mergeSort(arr, 0, mid);     // 왼쪽 절반
-        mergeSort(arr, mid+1, end); // 오른쪽 절반
-
-        merge(arr, start, mid, end);      // 정복
+        int mid = (start + end) / 2;
+        mergeSort(arr, start, mid);
+        mergeSort(arr, mid+1, end);
+        merge(arr, start, mid, end);
     }
 
-    private int[] merge(int[] arr, int start, int mid, int end) {
+    private void merge(int[] arr, int start, int mid, int end) {
         int p = start;
         int q = mid + 1;
         int idx = p;
@@ -25,33 +22,30 @@ public class DivideAndConquer {
         int[] tmp = new int[arr.length];
 
         while(p <= mid || q <= end) {
-            if (q > end || (p <= mid && arr[p] < arr[q])) {
-                tmp[idx++] = arr[p++];
-            } else {
-                tmp[idx++] = arr[q++];
-            }
+            if (q > end || (p <= mid && arr[p] < arr[q])) tmp[idx++] = arr[p++];
+            else tmp[idx++] = arr[q++];
         }
 
-        for (int i=start; i<=end; i++) {
-            arr[i] = tmp[i];
-        }
+        if (end + 1 - start >= 0) System.arraycopy(tmp, start, arr, start, end + 1 - start);
+    }
 
-        return null;
+    private static void printArray(int[] arr) {
+        for (int j : arr) System.out.printf("%d ", j);
+        System.out.println();
+    }
+
+    private static int[] randomArray(int n) {
+        Random r = new Random();
+        return r.ints(n, 0, n*100).toArray();
     }
 
     public static void main(String[] args) {
-        int arr[] = {7, 6, 5, 4, 3, 2, 1, 0};
-        for (int i=0; i<arr.length; i++) {
-            System.out.printf("%d ", arr[i]);
-        }
-        System.out.println();
+        int nArray = 30;
+        int[] arr = randomArray(nArray);
+        printArray(arr);
 
         DivideAndConquer dac = new DivideAndConquer();
         dac.mergeSort(arr, 0, arr.length-1);
-
-        for (int i=0; i<arr.length; i++) {
-            System.out.printf("%d ", arr[i]);
-        }
-        System.out.println();
+        printArray(arr);
     }
 }
