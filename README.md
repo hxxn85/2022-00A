@@ -4,5 +4,5 @@ computer algorithm
 - 교수님께 협업을 신청하여서 배운 내용들을 파이썬으로 코드 작성해보았습니다.
 - 그리디 알고리즘부터 진행하였습니다!
 
-- 오류나 수정점들을 https://open.kakao.com/o/sArzziVd으로 말씀해 주시면 빠르게 수정하도록 하겠습니다. 
+- 오류나 수정점들을 https://open.kakao.com/o/sArzziVd 으로 말씀해 주시면 빠르게 수정하도록 하겠습니다. 
 - 좋은 하루 되세용 감사합니다 !!
