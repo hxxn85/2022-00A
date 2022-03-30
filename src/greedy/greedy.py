@@ -65,7 +65,7 @@ height=[0]*int(N+1)
 
 
 for j in range(M):
-    print(str(M)+"번째 중"+str(j+1)+" 번재 출발 정점 , 도착 정점 , 간선의 수 입력: ")
+    print(str(M)+"번째 중"+str(j+1)+" 번재 출발 정점 , 도착 정점 , 가중치 입력: ")
     a,b,c = map(int, input().split())
     graph.append([a,b,c])
 graph.sort(key=lambda x:x[2])
