@@ -1,6 +1,8 @@
+package dnd;
+
 import java.util.Random;
 
-public class DivideAndConquer {
+public class MergeSort {
     private boolean isNotDividable(int start, int end) {
         return start >= end;
     }
@@ -44,7 +46,7 @@ public class DivideAndConquer {
         int[] arr = randomArray(nArray);
         printArray(arr);
 
-        DivideAndConquer dac = new DivideAndConquer();
+        MergeSort dac = new MergeSort();
         dac.mergeSort(arr, 0, arr.length-1);
         printArray(arr);
     }
