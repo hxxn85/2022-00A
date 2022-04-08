@@ -1,11 +1,13 @@
-package DynamicProgramming;
-public class Floyd {
-    public static final int INF = Integer.MAX_VALUE / 2;
+package dynamic;
 
-    static void printAdj(int[][] adj) {
+public class Floyd {
+
+    private static final int INF = Integer.MAX_VALUE / 2;
+
+    private static void printAdj(int[][] adj) {
         for (int[] row : adj) {
             for (int col : row) {
-                if(col >= INF/2) System.out.printf("%c\t", '∞');
+                if(col >= INF/2) System.out.print("😀\t");
                 else System.out.printf("%d\t", col);
             }
             System.out.println();
@@ -26,9 +28,10 @@ public class Floyd {
 
         printAdj(adj);
 
-        for (int k = 0; k < n; k++) {               // k = 경유지
-            for (int i = 0; i < n; i++) {           // i = 출발지
-                for (int j = 0; j < n; j++) {       // j = 목적지
+        for (int k = 0; k < n; k++) {
+            System.out.printf("%d-th iter\n", k+1);
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
                     adj[i][j] = Math.min(adj[i][j], adj[i][k] + adj[k][j]);
                 }
             }
